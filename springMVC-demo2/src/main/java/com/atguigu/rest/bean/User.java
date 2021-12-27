@@ -1,4 +1,4 @@
-package com.atguigu.mvc.bean;
+package com.atguigu.rest.bean;
 
 public class User {
     private String username;

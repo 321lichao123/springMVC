@@ -1,6 +1,6 @@
-package com.atguigu.mvc.controller;
+package com.atguigu.rest.controller;
 
-import com.atguigu.mvc.bean.User;
+import com.atguigu.rest.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;

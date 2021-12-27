@@ -8,7 +8,7 @@
     <artifactId>springMVC-demo1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>springMVC-demo2</module>
+        <module>springMVC-demo1</module>
     </modules>
     <packaging>war</packaging>
 
