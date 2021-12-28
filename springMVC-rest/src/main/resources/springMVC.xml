@@ -30,6 +30,7 @@
 
     <!--配置项配置路径-->
     <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
+    <mvc:view-controller path="/add_form" view-name="employee_add"></mvc:view-controller>
     <!--开放对静态资源的访问-->
     <mvc:default-servlet-handler />
     <!--开启MVC注解驱动-->

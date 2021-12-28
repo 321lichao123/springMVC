@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>员工列表</title>
+    <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
 </head>
 <body>
     <table id="dataTable" border="1" cellspacing="0" cellpadding="0" style="text-align: center;">
@@ -14,7 +15,7 @@
             <th>lastName</th>
             <th>email</th>
             <th>gender</th>
-            <th>options</th>
+            <th>options<a th:href="@{/add_form}">add</a></th>
         </tr>
         <tr th:each="employee : ${employeeList}">
             <td th:text="${employee.id}"></td>
@@ -23,7 +24,7 @@
             <td th:text="${employee.gender}"></td>
             <td>
                 <a @click="deleteEmployee" th:href="@{'/employee/'+${employee.id}}">delete</a>
-                <a href="">update</a>
+                <a th:href="@{'/employee/' + ${employee.id}}">update</a>
             </td>
         </tr>
     </table>
@@ -31,19 +32,18 @@
     <form id="deleteForm" method="post">
         <input type="hidden" name="_method" value="delete">
     </form>
-</body>
-<script th:src="@{/static/js/vue.js}"></script>
-<script type="text/javascript">
-    var vue = new vue({
-        el: "#dataTable",
-        method: {
-            deleteEmployee(e) {
-                var deleteForm = document.getElementById("deleteForm");
-                deleteForm.action = e.target.href;
-                deleteForm.submit();
-                e.preventDefault();
+    <script type="text/javascript">
+        let template1 = new Vue({
+            el: "#dataTable",
+            methods: {
+                deleteEmployee(e) {
+                    var deleteForm = document.getElementById("deleteForm");
+                    deleteForm.action = e.target.href;
+                    deleteForm.submit();
+                    e.preventDefault();
+                }
             }
-        }
-    })
-</script>
+        })
+    </script>
+</body>
 </html>
