@@ -29,7 +29,12 @@
 
     <!--配置项配置路径-->
     <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
+    <mvc:view-controller path="/file" view-name="file"></mvc:view-controller>
+    <!--开启静态资源的访问-->
     <mvc:default-servlet-handler/>
     <!--开启MVC注解驱动-->
     <mvc:annotation-driven />
+    <!--配置文件上传解析器，将上传的文件封装为MultipartFile-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
 </beans>
