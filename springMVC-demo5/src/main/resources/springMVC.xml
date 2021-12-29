@@ -51,19 +51,32 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
     <!--配置拦截器-->
     <mvc:interceptors>
+        <ref bean="firstInterceptor"></ref>
+        <ref bean="secondInterceptor"></ref>
         <!--对所有的请求进行拦截-->
         <!--<bean class="com.atguigu.mvc.interceptor.FirstInterceptor"></bean>-->
         <!--同上-->
         <!--<ref bean="firstInterceptor"></ref>-->
         <!--可以设置拦截规则-->
-        <mvc:interceptor>
-            <!--
+        <!--<mvc:interceptor>
+            &lt;!&ndash;
                 /*表示拦截上下文路径下一层的请求
                 /**表示拦截s上下文路径下所有层的请求
-            -->
+            &ndash;&gt;
             <mvc:mapping path="/*"/>
             <mvc:exclude-mapping path="/"/>
             <ref bean="firstInterceptor" />
-        </mvc:interceptor>
+        </mvc:interceptor>-->
     </mvc:interceptors>
+    <!--配置异常处理-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--配置捕获指定异常，跳转到指定页面-->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.ArithmeticException">error</prop>
+            </props>
+        </property>
+        <!--将错误信息放到请求域中-->
+        <property name="exceptionAttribute" value="ex"></property>
+    </bean>
 </beans>
